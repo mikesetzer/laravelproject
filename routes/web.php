@@ -23,4 +23,11 @@ Route::get('/about/', function() {
     ]);
 });
 
+Route::get('/articles/', function() {
+    return view('articles', [
+        'articles' => App\Article::latest()->take(10)->get()
+    ]);
+});
+
+Route::get('/articles', 'ArticlesController@index');
 Route::get('/articles/{article}', 'ArticlesController@show');
