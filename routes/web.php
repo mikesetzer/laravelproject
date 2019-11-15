@@ -23,9 +23,19 @@ Route::get('/about/', function() {
     ]);
 });
 
+<<<<<<< HEAD
 Route::get('/articles', 'ArticlesController@index');
 Route::post('/articles', 'ArticlesController@store');
 Route::get('/articles/create', 'ArticlesController@create');
+=======
+Route::get('/articles/', function() {
+    return view('articles', [
+        'articles' => App\Article::latest()->take(10)->get()
+    ]);
+});
+
+Route::get('/articles', 'ArticlesController@index');
+>>>>>>> 92f8d3b278180288fa1c10381b4a8541e903aa7c
 Route::get('/articles/{article}', 'ArticlesController@show');
 Route::get('/articles/{article}/edit', 'ArticlesController@edit');
 Route::put('/articles/{article}', 'ArticlesController@update');
